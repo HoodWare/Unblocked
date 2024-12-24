@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drews Unblocker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-top: 20px;
+        }
+
+        .games-container {
+            width: 80%;
+            max-width: 1000px;
+            height: 80%;
+            overflow-y: scroll;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 games per row */
+            gap: 20px; /* Space between items */
+            justify-items: center; /* Centers the games in each grid item */
+        }
+
+        .game-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ecf0f1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .play-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-button:hover {
+            background-color: #2980b9;
+        }
+
+        .play-button:focus {
+            outline: none;
+        }
+
+        .play-button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .game-iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .close-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .close-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Blank Game Item for Spacing */
+        .blank-game {
+            background-color: transparent;
+            border: none;
+            height: 250px;
+        }
+
+        /* Ad Containers */
+        .ad-container {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .ad-left {
+            left: 0;
+            margin-left: 20px;
+        }
+
+        .ad-right {
+            right: 0;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left Ad -->
+    <div class="ad-container ad-left">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4629433787504297"
+     crossorigin="anonymous"></script>
+        <!-- Verticals -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4629433787504297"
+             data-ad-slot="7706987289"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Main Content -->
+    <h1>Drews Unblocker</h1>
+
+    <div class="games-container">
+        <!-- Game Item 1: Drift King -->
+        <div class="game-item">
+            <img src="https://www.onlinegames.io/media/posts/729/responsive/Drift-King-lg.jpg" alt="Drift King">
+            <button class="play-button" onclick="openGame('https://www.onlinegames.io/games/2024/unity/drift-king/index.html')">Play Drift King</button>
+        </div>
+
+        <!-- Game Item 2: Retro Bowl -->
+        <div class="game-item">
+            <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/ee9ca3764ef4289a48a1ebf457ef605441ed1f35a0f2eb12707a70d609e53686.png" alt="Retro Bowl">
+            <button class="play-button" onclick="openGame('https://game316009.konggames.com/gamez/0031/6009/live/index.html')">Play Retro Bowl</button>
+        </div>
+
+        <!-- Game Item 3: Jetpack Joyride -->
+        <div class="game-item">
+            <img src="https://i0.wp.com/tabletoptogether.com/wp-content/uploads/2020/01/Jetpack-Joyride-Cover.png?ssl=1" alt="Jetpack Joyride">
+            <button class="play-button" onclick="openGame('https://emulatoros.github.io/gfile/jetpackjoyride/')">Play Jetpack Joyride</button>
+        </div>
+
+        <!-- Blank Game Item 1 -->
+        <div class="game-item blank-game">
+            <button class="play-button" disabled>Play BLANK</button>
+        </div>
+
+        <!-- Blank Game Item 2 -->
+        <div class="game-item blank-game">
+            <button class="play-button" disabled>Play BLANK</button>
+        </div>
+
+        <!-- Blank Game Item 3 -->
+        <div class="game-item blank-game">
+            <button class="play-button" disabled>Play BLANK</button>
+        </div>
+
+        <!-- Blank Game Item 4 -->
+        <div class="game-item blank-game">
+            <button class="play-button" disabled>Play BLANK</button>
+        </div>
+
+        <!-- Blank Game Item 5 -->
+        <div class="game-item blank-game">
+            <button class="play-button" disabled>Play BLANK</button>
+        </div>
+
+        <!-- Blank Game Item 6 -->
+        <div class="game-item blank-game">
+            <button class="play-button" disabled>Play BLANK</button>
+        </div>
+    </div>
+
+    <!-- Modal for Game -->
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeGame()">Close</button>
+            <iframe id="game-iframe" class="game-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        let iframeLoaded = false;
+
+        function openGame(gameUrl) {
+            const iframe = document.getElementById('game-iframe');
+
+            // If the game hasn't been loaded, load it
+            if (!iframeLoaded) {
+                iframe.src = gameUrl;
+                iframe.style.display = 'block';
+                iframeLoaded = true;
+            }
+
+            // Show the modal
+            document.getElementById('game-modal').style.display = 'flex';
+        }
+
+        function closeGame() {
+            // Hide the modal
+            document.getElementById('game-modal').style.display = 'none';
+            
+            // Stop the game by clearing the iframe src (which stops the game from running)
+            const iframe = document.getElementById('game-iframe');
+            iframe.style.display = 'none';
+            iframe.src = "";  // Stop the game from running
+
+            // Reset the loaded flag so the game can load again when clicked "Play"
+            iframeLoaded = false;
+        }
+    </script>
+
+    <!-- Right Ad -->
+    <div class="ad-container ad-right">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4629433787504297"
+     crossorigin="anonymous"></script>
+        <!-- Verticals -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-4629433787504297"
+             data-ad-slot="7706987289"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+</body>
+</html>
